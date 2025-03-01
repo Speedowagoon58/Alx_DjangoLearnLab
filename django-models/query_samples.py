@@ -131,3 +131,5 @@ if __name__ == "__main__":
     
     # Run additional filter examples
     additional_filter_examples()
+
+    ["objects.filter(author=author)"]
