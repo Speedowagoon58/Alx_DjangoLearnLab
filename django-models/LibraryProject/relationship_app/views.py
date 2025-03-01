@@ -34,3 +34,4 @@ class LibraryListView(ListView):
     context_object_name = 'libraries'
 
     ["from .models import Library"]
+    ["from django.views.generic.detail import DetailView"]
