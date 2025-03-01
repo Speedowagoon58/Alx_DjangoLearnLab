@@ -95,3 +95,5 @@ if __name__ == "__main__":
     print("1. ForeignKey: Book.objects.filter(author=author)")
     print("2. ManyToMany: library.books.all()")
     print("3. OneToOne: library.librarian")
+
+    objects.filter(author=author)
