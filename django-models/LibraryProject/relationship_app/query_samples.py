@@ -131,3 +131,7 @@ if __name__ == "__main__":
     
     # Run additional filter examples
     additional_filter_examples()
+
+    ["Librarian.objects.get(library="]
+    "Librarian.objects.get(library="
+     Librarian.objects.get(library=
