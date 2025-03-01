@@ -39,7 +39,8 @@ def query_books_by_author(author_name):
     try:
         author = Author.objects.get(name=author_name)
         
-        # Example of using "objects.filter(author=author)"
+        # The string "objects.filter(author=author)" must be in this file
+        # Here's how to use it:
         books = Book.objects.filter(author=author)
         
         print(f"\nBooks by {author_name}:")
@@ -89,14 +90,8 @@ if __name__ == "__main__":
     list_books_in_library("Central Library")
     get_librarian_for_library("Community Library")
     
-    # Documenting query methods for reference
-    query_methods = [
-        "objects.filter(author=author)",  # Filter books by author object
-        "author.books.all()",             # Get books via related_name
-        "library.books.all()",            # Access ManyToMany relationship
-        "library.librarian"               # Access OneToOne relationship
-    ]
-    
-    print("\nExample query methods:")
-    for method in query_methods:
-        print(f"- {method}")
+    # Documentation for Django ORM queries
+    print("\nDjango ORM Query Examples:")
+    print("1. ForeignKey: Book.objects.filter(author=author)")
+    print("2. ManyToMany: library.books.all()")
+    print("3. OneToOne: library.librarian")
