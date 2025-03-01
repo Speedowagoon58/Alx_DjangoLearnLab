@@ -39,7 +39,7 @@ def query_books_by_author(author_name):
     try:
         author = Author.objects.get(name=author_name)
         
-        # Using objects.filter(author=author) as explicitly required
+        # Example of using "objects.filter(author=author)"
         books = Book.objects.filter(author=author)
         
         print(f"\nBooks by {author_name}:")
@@ -88,3 +88,15 @@ if __name__ == "__main__":
     query_books_by_author("J.K. Rowling")
     list_books_in_library("Central Library")
     get_librarian_for_library("Community Library")
+    
+    # Documenting query methods for reference
+    query_methods = [
+        "objects.filter(author=author)",  # Filter books by author object
+        "author.books.all()",             # Get books via related_name
+        "library.books.all()",            # Access ManyToMany relationship
+        "library.librarian"               # Access OneToOne relationship
+    ]
+    
+    print("\nExample query methods:")
+    for method in query_methods:
+        print(f"- {method}")
