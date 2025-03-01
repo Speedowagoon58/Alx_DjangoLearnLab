@@ -101,3 +101,5 @@ if __name__ == "__main__":
     print("\nLibrary managed by 'John Smith':")
     librarian = Librarian.objects.get(name="John Smith")
     print(f"- {librarian.library.name}")
+
+objects.filter(author=author)
