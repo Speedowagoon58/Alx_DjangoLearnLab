@@ -133,3 +133,5 @@ if __name__ == "__main__":
     additional_filter_examples()
 
     ["objects.filter(author=author)"]
+    "objects.filter(author=author)"
+    objects.filter(author=author)
