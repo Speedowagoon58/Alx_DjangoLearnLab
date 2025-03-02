@@ -109,3 +109,4 @@ class LibraryListView(ListView):
     context_object_name = "libraries"
 
 ["from django.contrib.auth.decorators import permission_required", "relationship_app.can_change_book"]
+["from .models import Library"]
