@@ -1,11 +1,14 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h2>Delete Book</h2>
 <p>Are you sure you want to delete "{{ book.title }}"?</p>
 <form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirm Delete</button>
-    <a href="{% url 'relationship_app:book_list' %}">Cancel</a>
+  {% csrf_token %}
+  <button type="submit">Confirm Delete</button>
+  <a href="{% url 'relationship_app:book_list' %}">Cancel</a>
 </form>
-{% endblock %}
+{% endblock %} from django.contrib.auth.models import User, Permission from
+django.contrib.contenttypes.models import ContentType # Get the content type for
+the Book model content_type = ContentType.objects.get_for_model(Book) # Get the
+permissions add_permission = Permission.objects.get( codename='can_add_book',
+content_type=content_type, ) # Assign permission to a user user =
+User.objects.get(username='username') user.user_permissions.add(add_permission)
