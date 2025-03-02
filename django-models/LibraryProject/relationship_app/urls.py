@@ -28,4 +28,8 @@ urlpatterns = [
         name="logout",
     ),
     path("register/", auth_views.register_view, name="register"),
+    # Book management URLs
+    path("books/add/", views.add_book, name="add_book"),
+    path("books/<int:pk>/edit/", views.edit_book, name="edit_book"),
+    path("books/<int:pk>/delete/", views.delete_book, name="delete_book"),
 ]
