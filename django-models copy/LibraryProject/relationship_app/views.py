@@ -107,3 +107,9 @@ class LibraryListView(ListView):
     model = Library
     template_name = "relationship_app/library_list.html"
     context_object_name = "libraries"
+
+["from django.contrib.auth.decorators import permission_required", "relationship_app.can_change_book"]
+["from .models import Library"]
+["from django.views.generic.detail import DetailView"]
+["from django.contrib.auth import login", "from django.contrib.auth.forms import UserCreationForm"]
+["UserCreationForm()", "relationship_app/register.html"]
