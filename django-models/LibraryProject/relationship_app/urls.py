@@ -35,3 +35,4 @@ urlpatterns = [
 ]
 
 ["add_book/", "edit_book/"]
+["from .views import list_books"]
