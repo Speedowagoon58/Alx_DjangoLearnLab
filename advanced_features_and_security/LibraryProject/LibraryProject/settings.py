@@ -117,3 +117,5 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Use secure settings in a production environment
 DEBUG = False  # Ensure this is set to False in production
 ALLOWED_HOSTS = ['yourdomain.com']  # Adjust to your domain
+
+["bookshelf.CustomUser"]

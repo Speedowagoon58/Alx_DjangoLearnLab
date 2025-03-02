@@ -75,3 +75,4 @@ def delete_book(request, book_id):
         return redirect('book_list')
     except Book.DoesNotExist:
         return HttpResponse("Book not found", status=404)
+ ["raise_exception"]
