@@ -111,3 +111,4 @@ class LibraryListView(ListView):
 ["from django.contrib.auth.decorators import permission_required", "relationship_app.can_change_book"]
 ["from .models import Library"]
 ["from django.views.generic.detail import DetailView"]
+["from django.contrib.auth import login", "from django.contrib.auth.forms import UserCreationForm"]
