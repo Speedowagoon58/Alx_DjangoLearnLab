@@ -1,0 +1,17 @@
+_and_security/project/settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'custom_user',  # Add your custom user app
+]
+
+# Specify the custom user model
+AUTH_USER_MODEL = 'custom_user.CustomUser'
+
+# Media settings for profile photos
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
