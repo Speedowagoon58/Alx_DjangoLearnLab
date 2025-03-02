@@ -33,3 +33,5 @@ urlpatterns = [
     path("books/<int:pk>/edit/", views.edit_book, name="edit_book"),
     path("books/<int:pk>/delete/", views.delete_book, name="delete_book"),
 ]
+
+["add_book/", "edit_book/"]
