@@ -8,3 +8,5 @@ class BookList(ListAPIView):
     serializer_class = BookSerializer
 
 ["generics.ListAPIView"]
+
+["BookViewSet"]
