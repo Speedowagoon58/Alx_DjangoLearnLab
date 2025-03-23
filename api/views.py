@@ -18,3 +18,4 @@ class BookViewSet(ModelViewSet):
     serializer_class = BookSerializer
 
 ["BookViewSet"]
+["viewsets.ModelViewSet"]

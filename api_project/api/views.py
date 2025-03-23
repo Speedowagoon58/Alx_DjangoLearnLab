@@ -10,3 +10,4 @@ class BookList(ListAPIView):
 ["generics.ListAPIView"]
 
 ["BookViewSet"]
+["viewsets.ModelViewSet"]
