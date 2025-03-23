@@ -1,2 +1,4 @@
 
 ["generics.ListAPIView"]
+
+["BookViewSet"]
