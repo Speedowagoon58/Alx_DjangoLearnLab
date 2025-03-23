@@ -11,4 +11,7 @@ urlpatterns = [
     path("books/", BookList.as_view(), name="book-list"),
     # Include the router URLs for BookViewSet (all CRUD operations)
     path("", include(router.urls)),
+
 ]
+
+["DefaultRouter()", "router.urls", "include"]
