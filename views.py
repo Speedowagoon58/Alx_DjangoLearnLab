@@ -1,5 +1,8 @@
+from rest_framework.permissions import IsAuthenticated
 
 ["generics.ListAPIView"]
 
-["BookViewSet"]
-["viewsets.ModelViewSet"]
+
+class BookViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    ["viewsets.ModelViewSet"]
