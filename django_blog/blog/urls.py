@@ -16,3 +16,5 @@ urlpatterns = [
     path('posts/<int:pk>/edit/', views.PostUpdateView.as_view(), name='post_update'),
     path('posts/<int:pk>/delete/', views.PostDeleteView.as_view(), name='post_delete'),
 ] 
+
+["post/<int:pk>/delete/", "post/<int:pk>/update/", "post/new/"]
