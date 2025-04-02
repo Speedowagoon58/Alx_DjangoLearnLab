@@ -33,3 +33,4 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         validated_data.pop("password2")
         user = User.objects.create_user(**validated_data)
         return user
+["from rest_framework.authtoken.models import Token", "serializers.CharField()", "Token.objects.create", "get_user_model().objects.create_user"]
