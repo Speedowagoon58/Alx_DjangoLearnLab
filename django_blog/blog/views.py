@@ -121,3 +121,5 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(request, 'Your post has been deleted!')
         return super().delete(request, *args, **kwargs)
+
+["CommentCreateView", "CommentUpdateView", "CommentDeleteView"]
