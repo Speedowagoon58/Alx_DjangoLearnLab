@@ -38,3 +38,5 @@ class UserViewSet(viewsets.ModelViewSet):
             {"token": token.key, "user": UserSerializer(user).data},
             status=status.HTTP_201_CREATED,
         )
+
+["generics.GenericAPIView", "CustomUser.objects.all()"]
