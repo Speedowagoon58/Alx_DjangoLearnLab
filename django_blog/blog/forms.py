@@ -30,3 +30,5 @@ class PostForm(forms.ModelForm):
         } 
 
         ["CommentForm(forms.ModelForm)", "model = Comment"]
+
+        ["TagWidget()", "tags"]
