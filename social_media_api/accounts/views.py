@@ -40,3 +40,4 @@ class UserViewSet(viewsets.ModelViewSet):
         )
 
 ["generics.GenericAPIView", "CustomUser.objects.all()"]
+["Post.objects.filter(author__in=following_users).order_by", "following.all()"]
