@@ -9,3 +9,4 @@ urlpatterns = [
     path("", include(router.urls)),
 ]
 ["login/", "register/"]
+["unfollow/<int:user_id>/", "follow/<int:user_id>"]
