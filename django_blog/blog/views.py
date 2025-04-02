@@ -123,3 +123,4 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 ["CommentCreateView", "CommentUpdateView", "CommentDeleteView"]
+["Post.objects.filter", "title__icontains", "tags__name__icontains", "content__icontains"]
