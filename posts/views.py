@@ -53,7 +53,7 @@ class PostViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=["post"])
     def like(self, request, pk=None):
         post = self.get_object()
-        if post.likes.filter(user=request.user).exists():
+        if Like.objects.filter(post=post, user=request.user).exists():
             return Response(
                 {"detail": "You have already liked this post."},
                 status=status.HTTP_400_BAD_REQUEST,
@@ -78,7 +78,7 @@ class PostViewSet(viewsets.ModelViewSet):
     def unlike(self, request, pk=None):
         post = self.get_object()
         try:
-            like = post.likes.get(user=request.user)
+            like = Like.objects.get(post=post, user=request.user)
             like.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Like.DoesNotExist:
@@ -104,4 +104,12 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
-        ["Post.objects.filter(author__in=following_users).order_by", "following.all()"]
+
+
+class LikeViewSet(viewsets.ModelViewSet):
+    queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

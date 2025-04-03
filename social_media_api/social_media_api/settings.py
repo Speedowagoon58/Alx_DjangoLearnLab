@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django_filters",
     "accounts",
     "posts",
+    "notifications",
 ]
 
 MIDDLEWARE = [
@@ -141,5 +142,9 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework.filters.SearchFilter",
         "rest_framework.filters.OrderingFilter",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ],
 }

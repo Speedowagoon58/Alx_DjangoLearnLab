@@ -1,6 +1,6 @@
 # Social Media API
 
-A Django REST Framework-based social media API with user authentication, posts, and comments functionality.
+A Django REST Framework-based social media API with user authentication, posts, comments, likes, and notifications functionality.
 
 ## Setup Instructions
 
@@ -117,42 +117,55 @@ python manage.py runserver
 - **Method**: `DELETE`
 - **Headers**: `Authorization: Token your_token`
 
-### Comments
+### Likes
 
-#### List all comments
+#### Like a post
 
-- **URL**: `/api/comments/`
-- **Method**: `GET`
-- **Query Parameters**:
-  - `page`: Page number for pagination
-  - `post`: Filter by post ID
-  - `author`: Filter by author ID
-  - `search`: Search in comment content
-
-#### Add a comment to a post
-
-- **URL**: `/api/posts/{post_id}/comment/`
+- **URL**: `/api/posts/{post_id}/like/`
 - **Method**: `POST`
 - **Headers**: `Authorization: Token your_token`
-- **Data**:
+- **Response**: Returns like object with user and post information
+
+#### Unlike a post
+
+- **URL**: `/api/posts/{post_id}/unlike/`
+- **Method**: `POST`
+- **Headers**: `Authorization: Token your_token`
+- **Response**: Empty response with 204 status code
+
+### Notifications
+
+#### List all notifications
+
+- **URL**: `/api/notifications/`
+- **Method**: `GET`
+- **Headers**: `Authorization: Token your_token`
+- **Query Parameters**:
+  - `page`: Page number for pagination
+
+#### Get unread notifications count
+
+- **URL**: `/api/notifications/unread_count/`
+- **Method**: `GET`
+- **Headers**: `Authorization: Token your_token`
+- **Response**:
 
 ```json
 {
-  "content": "Comment content"
+  "count": 5
 }
 ```
 
-#### Update a comment
+#### Mark notification as read
 
-- **URL**: `/api/comments/{id}/`
-- **Method**: `PUT` or `PATCH`
+- **URL**: `/api/notifications/{notification_id}/mark_read/`
+- **Method**: `POST`
 - **Headers**: `Authorization: Token your_token`
-- **Data**: Any comment fields to update
 
-#### Delete a comment
+#### Mark all notifications as read
 
-- **URL**: `/api/comments/{id}/`
-- **Method**: `DELETE`
+- **URL**: `/api/notifications/mark_all_read/`
+- **Method**: `POST`
 - **Headers**: `Authorization: Token your_token`
 
 ## Features
@@ -171,16 +184,34 @@ python manage.py runserver
    - Pagination support
 
 3. Comments:
+
    - Add comments to posts
    - Update and delete comments
    - Filter comments by post or author
    - Search in comment content
    - Pagination support
 
+4. Likes:
+
+   - Like and unlike posts
+   - Track likes count per post
+   - Check if current user has liked a post
+
+5. Notifications:
+   - Receive notifications for:
+     - New likes on posts
+     - New comments on posts
+     - New followers
+   - Mark notifications as read
+   - Get unread notifications count
+   - Pagination support
+
 ## Permissions
 
-- Authentication is required for creating posts and comments
+- Authentication is required for creating posts, comments, and likes
 - Users can only edit or delete their own posts and comments
+- Users can only like a post once
+- Users can only access their own notifications
 - Anyone can view posts and comments
 - Profile updates require authentication
 
@@ -190,6 +221,7 @@ The API returns appropriate HTTP status codes:
 
 - 200: Successful request
 - 201: Resource created
+- 204: No content (successful deletion)
 - 400: Bad request
 - 401: Unauthorized
 - 403: Forbidden
@@ -205,3 +237,36 @@ The custom user model includes the following fields:
 - bio
 - profile_picture
 - followers (ManyToMany relationship with other users)
+
+## Models
+
+1. User Model:
+
+   - Custom user model with bio and profile picture
+   - Followers relationship
+
+2. Post Model:
+
+   - Title and content
+   - Author relationship
+   - Created and updated timestamps
+   - Likes relationship
+
+3. Comment Model:
+
+   - Content
+   - Post and author relationships
+   - Created and updated timestamps
+
+4. Like Model:
+
+   - User and post relationships
+   - Created timestamp
+   - Unique constraint on user-post combination
+
+5. Notification Model:
+   - Recipient and actor relationships
+   - Notification type (like, comment, follow)
+   - Target object (generic relationship)
+   - Read status
+   - Created timestamp
